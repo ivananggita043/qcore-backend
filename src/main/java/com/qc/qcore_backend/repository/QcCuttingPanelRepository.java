@@ -8,6 +8,5 @@ import java.util.List;
 
 @Repository
 public interface QcCuttingPanelRepository extends JpaRepository<QcCuttingPanel, Integer> {
-    // Mencari daftar panel berdasarkan proses cutting
     List<QcCuttingPanel> findByCuttingProcessCuttingProcessId(Integer cuttingProcessId);
 }

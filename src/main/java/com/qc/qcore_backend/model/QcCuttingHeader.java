@@ -23,10 +23,13 @@ public class QcCuttingHeader {
     @JoinColumn(name = "inspector_id", nullable = false)
     private User inspector;
 
-    @Column(name = "lot_number", nullable = false)
+    @Column(name = "line_number", nullable = false, length = 20)
+    private String lineNumber;
+
+    @Column(name = "lot_number", nullable = false, length = 50)
     private String lotNumber;
 
-    @Column(name = "operator_name", nullable = false)
+    @Column(name = "operator_name", nullable = false, length = 100)
     private String operatorName;
 
     @Column(name = "inspect_date", nullable = false)

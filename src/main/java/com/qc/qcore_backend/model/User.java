@@ -12,25 +12,24 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private Long userId;
+    private Integer userId;
 
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(name = "username", unique = true, nullable = false, length = 50)
     private String username;
 
-    @Column(name = "password_hash", nullable = false)
+    @Column(name = "password_hash", nullable = false, length = 255)
     private String passwordHash;
 
-    @Column(name = "full_name", nullable = false)
+    @Column(name = "full_name", nullable = false, length = 100)
     private String fullName;
 
-    @Enumerated(EnumType.STRING)
+    // Menggunakan String untuk menghindari error mapping spasi pada 'super admin'
     @Column(name = "role", nullable = false)
-    private Role role;
+    private String role = "user";
+
+    @Column(name = "assigned_line", length = 20)
+    private String assignedLine;
 
     @Column(name = "created_at", insertable = false, updatable = false)
     private Timestamp createdAt;
-
-    public enum Role {
-        Admin, QC_Inspector, Supervisor, Production_Operator
-    }
 }

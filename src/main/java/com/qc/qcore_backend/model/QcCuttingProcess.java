@@ -25,7 +25,7 @@ public class QcCuttingProcess {
     @Column(name = "process_status", nullable = false)
     private ProcessStatus processStatus;
 
-    @Column(name = "remarks")
+    @Column(name = "remarks", columnDefinition = "TEXT")
     private String remarks;
 
     public enum ProcessStage {

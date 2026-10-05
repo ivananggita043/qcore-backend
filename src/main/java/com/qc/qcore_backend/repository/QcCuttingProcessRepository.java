@@ -8,6 +8,5 @@ import java.util.List;
 
 @Repository
 public interface QcCuttingProcessRepository extends JpaRepository<QcCuttingProcess, Integer> {
-    // Mencari daftar proses berdasarkan header cutting
     List<QcCuttingProcess> findByCuttingHeaderCuttingHeaderId(Integer cuttingHeaderId);
 }

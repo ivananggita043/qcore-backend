@@ -26,7 +26,6 @@ public class QcCuttingController {
     @Autowired
     private QcCuttingPanelRepository panelRepository;
 
-    // --- HEADER ENDPOINTS ---
     @GetMapping("/headers")
     public List<QcCuttingHeader> getAllHeaders() {
         return headerRepository.findAll();
@@ -47,7 +46,6 @@ public class QcCuttingController {
         headerRepository.deleteById(id);
     }
 
-    // --- PROCESS ENDPOINTS ---
     @GetMapping("/processes/header/{headerId}")
     public List<QcCuttingProcess> getProcessesByHeaderId(@PathVariable Integer headerId) {
         return processRepository.findByCuttingHeaderCuttingHeaderId(headerId);
@@ -63,7 +61,6 @@ public class QcCuttingController {
         processRepository.deleteById(id);
     }
 
-    // --- PANEL ENDPOINTS ---
     @GetMapping("/panels/process/{processId}")
     public List<QcCuttingPanel> getPanelsByProcessId(@PathVariable Integer processId) {
         return panelRepository.findByCuttingProcessCuttingProcessId(processId);

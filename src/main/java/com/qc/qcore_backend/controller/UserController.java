@@ -16,27 +16,23 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    // Mendapatkan seluruh daftar user
     @GetMapping
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    // Mendapatkan user berdasarkan ID
     @GetMapping("/{id}")
-    public Optional<User> getUserById(@PathVariable Long id) {
+    public Optional<User> getUserById(@PathVariable Integer id) {
         return userRepository.findById(id);
     }
 
-    // Menambah user baru
     @PostMapping
     public User createUser(@RequestBody User user) {
         return userRepository.save(user);
     }
 
-    // Menghapus user
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
+    public void deleteUser(@PathVariable Integer id) {
         userRepository.deleteById(id);
     }
 }

@@ -17,15 +17,15 @@ public class QcCuttingPanel {
     @JoinColumn(name = "cutting_process_id", nullable = false)
     private QcCuttingProcess cuttingProcess;
 
-    @Column(name = "panel_name", nullable = false)
+    @Column(name = "panel_name", nullable = false, length = 50)
     private String panelName;
 
     @Column(name = "qty_inspected", nullable = false)
-    private Integer qtyInspected;
+    private Integer qtyInspected = 0;
 
     @Column(name = "qty_defect", nullable = false)
-    private Integer qtyDefect;
+    private Integer qtyDefect = 0;
 
-    @Column(name = "defect_description")
+    @Column(name = "defect_description", columnDefinition = "TEXT")
     private String defectDescription;
 }
